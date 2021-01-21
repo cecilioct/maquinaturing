@@ -12,10 +12,7 @@ def turing_M (state = None, #estados de la maquina de turing
     if pos >= len(tape) or pos < 0 : raise Error ("Se inicializa mal la posicion")
     
     rules = dict(((s0, v0), (v1, dr, s1)) for (s0, v0, v1, dr, s1) in rules)
-    """
-Estado	Símbolo leído	Símbolo escrito	       Mov. 	Estado sig.
-  p(s0)	       1(v0)	         x(v1)         R(dr)	     p(s1)
-"""
+    
     while True:
         print (st, '\t', end=" ")
         for i, v in enumerate(tape):
@@ -38,21 +35,20 @@ Estado	Símbolo leído	Símbolo escrito	       Mov. 	Estado sig.
             if pos >= len(tape): tape.append(blank)
         st = s1
 
-print("Maquina de turing Test")
 
 #se puede cambiar las reglasde transicion para otra maquina de turing
-turing_M (state = 'p0', #estado inicial de la maquina de turing
+turing_M (state = 'q0', #estado inicial de la maquina de turing
               blank = 'b', #simbolo blanco de el alfabeto dela cinta
               tape = list("1001"),#inserta los elementos en la cinta
-              final = 'p1',  #estado valido y/o final
+              final = 'q1',  #estado valido y/o final
               rules = map(tuple,#reglas de transicion
                           [
-                          "p0 0 C right p2".split(),
-                          "p0 1 T right p0".split(),
-                          "p2 0 N right p2".split(),
-                          "p2 1 M left p1".split(),
-                          "p1 0 E left p1".split(),
-                          "p1 1 H left p1".split(),
+                          "q0 0 C right q2".split(),
+                          "q0 1 T right q0".split(),
+                          "q2 0 N right q2".split(),
+                          "q2 1 M left q1".split(),
+                          "q1 0 E left q1".split(),
+                          "q1 1 H left q1".split(),
 
                           ]   
                          )
