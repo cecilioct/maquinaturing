@@ -26,7 +26,7 @@ def turing_M (state = None, #estados de la maquina de turing
         print()
         
         if st == final: 
-            print('Llegó a la aceptacion')
+            print('Llegó a la aceptacion')#cuando no llega en el estado de aceptacion
             break
         if (st, tape[pos]) not in rules: 
             break
@@ -45,7 +45,7 @@ def turing_M (state = None, #estados de la maquina de turing
             if pos >=len(tape): 
                 tape.append('x')
                 print('')
-                print('No llega a la aceptacion')
+                print('No llega a la aceptacion')#cuando llega al estado de aceptacion en el autómata
                 print('')
     
         st = s1
@@ -68,3 +68,7 @@ turing_M (state = 'q0', #estado inicial de la maquina de turing
                           ]   
                          )
              )    
+
+#COMENTARIO IMPORTANTE
+#CUANDO LOS FALTAN LETRAS PARA LLEGAR A LA ACEPTACION SE MANDA MENSAJE
+#CUANDO SOBRAN LETRAS, PERO SE LLEGA A CUMPLIR EL AUTÓMATA NOS LO TOMA COMO BUENA
